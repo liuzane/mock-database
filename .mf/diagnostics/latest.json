@@ -1,0 +1,32 @@
+{
+  "bundler": {
+    "name": "webpack"
+  },
+  "mfConfig": {
+    "name": "mockDB",
+    "exposes": {
+      "./index": "./src/index",
+      "./config": "./src/config",
+      "./mapper": "./src/mapper",
+      "./data/orders": "./src/data/orders",
+      "./data/products": "./src/data/products",
+      "./data/users": "./src/data/users",
+      "./data/roles": "./src/data/roles"
+    }
+  },
+  "latestErrorEvent": {
+    "code": "BUILD-001",
+    "message": "Failed to find expose module. #BUILD-001\nargs: {\"exposeModules\":[{\"name\":\"./index\",\"module\":null,\"request\":\"./src/index\"}],\"FEDERATION_WEBPACK_PATH\":\"\"}\nView the docs to see how to solve: https://module-federation.io/guide/troubleshooting/build#build-001",
+    "args": {
+      "exposeModules": [
+        {
+          "name": "./index",
+          "module": null,
+          "request": "./src/index"
+        }
+      ],
+      "FEDERATION_WEBPACK_PATH": ""
+    },
+    "timestamp": 1782453651223
+  }
+}

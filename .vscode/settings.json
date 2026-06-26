@@ -1,0 +1,28 @@
+{
+  // 启用 ESLint 格式化
+  "eslint.format.enable": true,
+
+  // 启用对 JS, JSX, TS, TSX 文件的 ESLint 检查
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+
+  // 关闭 VS Code 自带的保存时格式化（避免冲突）
+  "editor.formatOnSave": false,
+
+  // 启用保存时自动修复 ESLint 可修复的问题
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // 强制使用 ESLint 作为格式化工具
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+
+  // React TSX 文件强制使用 ESLint 作为格式化工具
+  "[tsx]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+
+  // 强制 VSCode 使用项目 node_modules 中的 TypeScript 版本
+  "typescript.tsdk": "./host/node_modules/typescript/lib",
+  // 可选，开启后当检测到本地 TS 版本时，VSCode 会弹出提示询问是否使用
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}

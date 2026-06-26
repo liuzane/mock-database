@@ -1,0 +1,29 @@
+{
+  "name": "mock-database",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "devDependencies": {
+    "@module-federation/enhanced": "^2.6.0",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "@types/node": "^26.0.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.7.0",
+    "ts-loader": "^9.6.2",
+    "ts-node": "^10.9.2",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.62.0",
+    "webpack": "^5.108.0",
+    "webpack-cli": "^7.0.3",
+    "webpack-dev-server": "^5.2.5"
+  }
+}
