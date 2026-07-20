@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack serve --config build/webpack.dev.mjs --mode development",
+    "build": "webpack --config build/webpack.prod.mjs --mode production"
   },
   "files": [
     "dist"
@@ -12,7 +12,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "devDependencies": {
-    "@module-federation/enhanced": "^2.6.0",
+    "@module-federation/enhanced": "^2.8.0",
     "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^26.0.1",
     "eslint": "^10.5.0",
@@ -24,6 +24,7 @@
     "typescript-eslint": "^8.62.0",
     "webpack": "^5.108.0",
     "webpack-cli": "^7.0.3",
-    "webpack-dev-server": "^5.2.5"
+    "webpack-dev-server": "^5.2.5",
+    "webpack-merge": "^6.0.1"
   }
 }
