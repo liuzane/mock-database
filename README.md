@@ -2,6 +2,7 @@
 
 基于 IndexedDB 的模拟数据库模块，通过 **Module Federation 2.0**（`@module-federation/enhanced`）提供远程数据服务，也可直接在浏览器中以纯脚本标签方式使用。专为微前端架构设计，允许多个应用共享同一数据源，并提供类型安全的 Mapper 接口。
 
+
 ## 特性
 
 - **Module Federation 2.0**：采用现代 Module Federation 实现（`@module-federation/enhanced`），支持更灵活的加载策略和更优的性能。
@@ -11,6 +12,7 @@
 - **开箱即用**：内置四组模拟数据：`orders`、`products`、`users` 和 `roles`，立即可用。
 - **轻量初始化**：仅在首次使用时创建数据库和对象存储，并自动填充初始数据。
 - **CRUD + 分页**：支持创建、读取、更新、删除、批量插入、条件过滤和分页查询。
+
 
 ## 安装
 
@@ -92,6 +94,7 @@ import { ORDER_STORE_NAME } from 'mockDB/store-names';
 
 编辑器会提供自动补全和类型检查。
 
+
 ## 使用
 
 ### 第一步：初始化数据库
@@ -148,6 +151,7 @@ const count = await mapper.count();
 await mapper.clear();
 ```
 
+
 ## 浏览器用法（不使用 Module Federation）
 
 如果你不使用 Module Federation，也可以直接在浏览器中通过加载预构建的 var 风格包来使用本库。每个模块作为一个独立的脚本，并挂载到全局对象 `window.mockDB` 上。
@@ -189,6 +193,7 @@ await mapper.clear();
   const { initIndexedDB } = window.mockDB.init;
   const { DatabaseMapper } = window.mockDB.mapper;
   const { ORDER_STORE_NAME } = window.mockDB.storeNames;
+  const orders = window.mockDB.data.orders;
 
   const DATABASE_NAME = 'MyAppDB';
 
@@ -199,10 +204,12 @@ await mapper.clear();
     // 创建订单映射器
     const orderMapper = new DatabaseMapper(DATABASE_NAME, ORDER_STORE_NAME);
 
+    // 插入订单数据
+    orderMapper.insertBatch(orders);
+
     // 查询所有订单
-    return orderMapper.getAll();
-  }).then(orders => {
-    console.log('所有订单：', orders);
+    const allOrders = await orderMapper.getAll();
+    console.log('所有订单：', allOrders);
   }).catch(err => {
     console.error('错误：', err);
   });
@@ -217,6 +224,8 @@ await mapper.clear();
 - **模拟数据**：数据脚本（如 `data/orders.js`）导出初始模拟数据数组。你可以使用它们来填充数据库，但请注意 `initIndexedDB` 在首次创建时已自动填充了数据。
 - **生产构建**：将 `http://localhost:1000/browser/` 替换为实际托管 bundle 的 CDN 或静态服务器 URL。
 
+
+
 ## 暴露的模块
 
 | 模块路径 | 描述 |
@@ -228,6 +237,7 @@ await mapper.clear();
 | `mockDB/data/products` | 导出 `products` 数组，包含初始产品数据。 |
 | `mockDB/data/users` | 导出 `users` 数组，包含初始用户数据。 |
 | `mockDB/data/roles` | 导出 `roles` 数组，包含初始角色数据。 |
+
 
 ## API 参考
 
@@ -271,6 +281,7 @@ interface PageResponse<T> {
 }
 ```
 
+
 ## 手动类型声明（备用方案）
 
 如果项目无法自动生成类型文件（例如未使用 `@module-federation/enhanced` 的自动类型功能），可以手动声明模块类型。在项目的类型声明文件（如 `src/typings.d.ts`）中添加以下内容：
@@ -308,6 +319,7 @@ declare module 'mockDB/data/orders' {
 // 其他数据模块类似
 ```
 
+
 ## 重要说明
 
 1. **统一的数据库名称**：在应用中定义 `DATABASE_NAME` 常量，确保所有应用使用同一数据库。
@@ -317,10 +329,13 @@ declare module 'mockDB/data/orders' {
 5. **浏览器兼容性**：IndexedDB 在主流浏览器（Chrome、Firefox、Safari、Edge）中均受支持，但在某些隐私模式下可能受限。
 6. **Module Federation 版本**：本模块基于 `@module-federation/enhanced` 构建，建议消费方使用相同的主版本（`^2.0.0` 或更高）。如果使用 Rspack，请确保其内置的 Module Federation 也支持 2.0 特性。
 
+
 ## 贡献
 
 欢迎提交 Issue 和 Pull Request。请确保代码通过 ESLint 和类型检查。
 
+
 ## 许可证
 
-MIT
+MIT License
+Copyright (c) 2026-present, liuzane
