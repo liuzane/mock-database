@@ -2,6 +2,7 @@
 
 A mock database module based on IndexedDB, providing remote data services via **Module Federation 2.0** (`@module-federation/enhanced`), and also usable directly in the browser as plain script tags. Designed for micro-frontend architectures, it allows multiple applications to share the same data source and provides a type-safe Mapper interface.
 
+
 ## Features
 
 - **Module Federation 2.0**: Uses the modern Module Federation implementation (`@module-federation/enhanced`), supporting more flexible loading strategies and better performance.
@@ -11,6 +12,7 @@ A mock database module based on IndexedDB, providing remote data services via **
 - **Ready to Use**: Comes with four built-in mock datasets: `orders`, `products`, `users`, and `roles`, available immediately.
 - **Lightweight Initialization**: Creates the database and object stores only on first use, automatically populating initial data.
 - **CRUD + Pagination**: Supports create, read, update, delete, batch insert, conditional filtering, and paginated queries.
+
 
 ## Installation
 
@@ -92,6 +94,7 @@ import { ORDER_STORE_NAME } from 'mockDB/store-names';
 
 Your editor will provide autocompletion and type checking.
 
+
 ## Usage
 
 ### Step 1: Initialize the Database
@@ -148,13 +151,14 @@ const count = await mapper.count();
 await mapper.clear();
 ```
 
+
 ## Browser Usage (Without Module Federation)
 
 If you are not using Module Federation, you can also use this library directly in the browser by loading pre-built var-style bundles. Each module is a separate script and is mounted onto the global object `window.mockDB`.
 
 ### Available Scripts
 
-Each module corresponds to an independent JavaScript file. In development, you can serve these files from a local server (e.g., `http://localhost:1000/browser/`). The available scripts are:
+Each module corresponds to an independent JavaScript file. The available scripts are:
 
 | Script URL | Global Access Path |
 |------------|---------------------|
@@ -218,7 +222,7 @@ Simply include the required `<script>` tags in your HTML page. Make sure to load
 - **Consistent Database Name**: Define a single `DATABASE_NAME` constant on the page to ensure all mappers point to the same database.
 - **Multiple Stores**: You can load `store-names.js` to get store name constants, or hardcode store names (e.g., `'orders'`, `'products'`).
 - **Mock Data**: Data scripts (e.g., `data/orders.js`) export initial mock data arrays. You can use them to populate the database, but note that `initIndexedDB` already auto-fills data on first creation.
-- **Production Build**: Replace `http://localhost:1000/browser/` with the actual CDN or static server URL hosting the bundles.
+
 
 ## Exposed Modules
 
@@ -231,6 +235,7 @@ Simply include the required `<script>` tags in your HTML page. Make sure to load
 | `mockDB/data/products` | Exports the `products` array containing initial product data. |
 | `mockDB/data/users` | Exports the `users` array containing initial user data. |
 | `mockDB/data/roles` | Exports the `roles` array containing initial role data. |
+
 
 ## API Reference
 
@@ -274,6 +279,7 @@ interface PageResponse<T> {
 }
 ```
 
+
 ## Manual Type Declarations (Fallback)
 
 If your project cannot auto-generate type files (e.g., not using `@module-federation/enhanced`'s auto-type feature), you can manually declare module types. Add the following to your project's type declaration file (e.g., `src/typings.d.ts`):
@@ -311,6 +317,7 @@ declare module 'mockDB/data/orders' {
 // Similar declarations for other data modules
 ```
 
+
 ## Important Notes
 
 1. **Unified Database Name**: Define a `DATABASE_NAME` constant in your application to ensure all apps use the same database.
@@ -320,9 +327,11 @@ declare module 'mockDB/data/orders' {
 5. **Browser Compatibility**: IndexedDB is supported in all major browsers (Chrome, Firefox, Safari, Edge), but may be restricted in some private browsing modes.
 6. **Module Federation Version**: This module is built with `@module-federation/enhanced`. It is recommended that consumers use the same major version (`^2.0.0` or higher). If using Rspack, ensure its built-in Module Federation also supports 2.0 features.
 
+
 ## Contributing
 
 Issues and Pull Requests are welcome. Please ensure code passes ESLint and type checks.
+
 
 ## License
 

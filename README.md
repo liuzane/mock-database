@@ -158,7 +158,7 @@ await mapper.clear();
 
 ### 可用脚本
 
-每个模块对应一个独立的 JavaScript 文件。在开发环境下，你可以从本地服务器（例如 `http://localhost:1000/browser/`）提供这些文件。可用的脚本如下：
+每个模块对应一个独立的 JavaScript 文件。可用的脚本如下：
 
 | 脚本 URL | 全局访问方式 |
 |----------|-------------|
@@ -222,8 +222,6 @@ await mapper.clear();
 - **数据库名称一致性**：在页面中定义统一的 `DATABASE_NAME` 常量，确保所有映射器指向同一个数据库。
 - **多存储**：你可以加载 `store-names.js` 来获取存储名称常量，也可以直接硬编码存储名称（例如 `'orders'`、`'products'`）。
 - **模拟数据**：数据脚本（如 `data/orders.js`）导出初始模拟数据数组。你可以使用它们来填充数据库，但请注意 `initIndexedDB` 在首次创建时已自动填充了数据。
-- **生产构建**：将 `http://localhost:1000/browser/` 替换为实际托管 bundle 的 CDN 或静态服务器 URL。
-
 
 
 ## 暴露的模块
