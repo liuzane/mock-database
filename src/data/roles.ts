@@ -8,7 +8,7 @@ export interface Role {
   description: string;
 }
 
-export const roles: Role[] = [
+const roles: Role[] = [
   { id: 1, name: '超级管理员', code: 'super_admin', status: 'active', userCount: 2, createTime: '2024-01-01 10:00:00', description: '拥有所有系统权限' },
   { id: 2, name: '管理员', code: 'admin', status: 'active', userCount: 5, createTime: '2024-01-02 10:00:00', description: '管理后台用户和配置' },
   { id: 3, name: '产品经理', code: 'product_manager', status: 'active', userCount: 8, createTime: '2024-01-03 10:00:00', description: '产品管理和需求分析' },
@@ -18,3 +18,5 @@ export const roles: Role[] = [
   { id: 7, name: '数据分析师', code: 'analyst', status: 'active', userCount: 3, createTime: '2024-01-07 10:00:00', description: '查看数据分析报表' },
   { id: 8, name: '财务人员', code: 'finance', status: 'inactive', userCount: 4, createTime: '2024-01-08 10:00:00', description: '财务管理相关权限' },
 ];
+
+export default roles;

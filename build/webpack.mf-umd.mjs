@@ -18,6 +18,15 @@ export default (env, argv) => {
       path: path.resolve(process.cwd(), OUTPUT_PATH, MF_UMD_PUBLIC_PATH),
       publicPath: argv.mode === 'production' ? `/mock-database/${MF_UMD_PUBLIC_PATH}/` : `http://localhost:${DEV_PORT}/${MF_UMD_PUBLIC_PATH}/`,
     },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
     plugins: [
       new ModuleFederationPlugin(mfConfig('umd')),
     ]

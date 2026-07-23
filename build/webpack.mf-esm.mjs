@@ -18,6 +18,15 @@ export default (env, argv) => {
       path: path.resolve(process.cwd(), OUTPUT_PATH, MF_ESM_PUBLIC_PATH),
       publicPath: argv.mode === 'production' ? `/mock-database/${MF_ESM_PUBLIC_PATH}/` : `/${MF_ESM_PUBLIC_PATH}/`,
     },
+    module: {
+      rules: [
+        {
+          test: /\.ts$/,
+          loader: 'ts-loader',
+          exclude: /node_modules/,
+        },
+      ],
+    },
     plugins: [
       new ModuleFederationPlugin(mfConfig('module')),
     ],

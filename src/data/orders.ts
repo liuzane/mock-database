@@ -10,7 +10,7 @@ export interface Order {
   address: string;
 }
 
-export const orders: Order[] = [
+const orders: Order[] = [
   { id: 1, orderNo: 'ORD00000001', productName: '无线蓝牙耳机 Pro', amount: 299.00, status: 'completed', createTime: '2024-01-15 10:30:00', customerName: '张三', phone: '16602100001', address: '北京市朝阳区建国路88号' },
   { id: 2, orderNo: 'ORD00000002', productName: '智能手表运动版', amount: 1299.00, status: 'shipped', createTime: '2024-01-15 11:20:00', customerName: '李四', phone: '16602100002', address: '上海市浦东新区陆家嘴环路1000号' },
   { id: 3, orderNo: 'ORD00000003', productName: '平板电脑 Air', amount: 4999.00, status: 'paid', createTime: '2024-01-15 14:45:00', customerName: '王五', phone: '16602100003', address: '广州市天河区珠江新城' },
@@ -112,3 +112,5 @@ export const orders: Order[] = [
   { id: 99, orderNo: 'ORD00000099', productName: 'UPS电源', amount: 1999.00, status: 'pending', createTime: '2023-12-22 14:00:00', customerName: '尹一百零一', phone: '16602100099', address: '湖州市安吉县孝丰镇' },
   { id: 100, orderNo: 'ORD00000100', productName: '稳压器', amount: 499.00, status: 'completed', createTime: '2023-12-22 16:30:00', customerName: '姚一百零二', phone: '16602100100', address: '绍兴市诸暨市店口镇' },
 ];
+
+export default orders;

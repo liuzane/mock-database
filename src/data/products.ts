@@ -12,7 +12,7 @@ export interface Product {
   description: string;
 }
 
-export const products: Product[] = [
+const products: Product[] = [
   { id: 1, productNo: 'PRD0001', name: '无线蓝牙耳机 Pro', price: 299.00, stock: 150, sales: 320, category: 'electronics', status: 'on_sale', supplier: '深圳科技有限公司', createTime: '2024-01-10 10:30:00', description: '高品质无线蓝牙耳机，支持主动降噪' },
   { id: 2, productNo: 'PRD0002', name: '智能手表运动版', price: 1299.00, stock: 50, sales: 180, category: 'electronics', status: 'on_sale', supplier: '广州智能科技', createTime: '2024-01-09 11:20:00', description: '支持心率监测、GPS定位的运动智能手表' },
   { id: 3, productNo: 'PRD0003', name: '平板电脑 Air', price: 4999.00, stock: 9, sales: 85, category: 'electronics', status: 'low_stock', supplier: '上海电子科技', createTime: '2024-01-08 14:45:00', description: '轻薄便携，高性能平板电脑' },
@@ -34,3 +34,5 @@ export const products: Product[] = [
   { id: 19, productNo: 'PRD0019', name: '进口巧克力', price: 89.00, stock: 180, sales: 560, category: 'food', status: 'on_sale', supplier: '上海食品贸易', createTime: '2023-12-23 14:00:00', description: '比利时进口，纯正可可' },
   { id: 20, productNo: 'PRD0020', name: '蜂蜜礼盒', price: 158.00, stock: 0, sales: 280, category: 'food', status: 'out_of_stock', supplier: '浙江蜂业公司', createTime: '2023-12-22 16:30:00', description: '天然蜂蜜，滋补佳品' },
 ];
+
+export default products;

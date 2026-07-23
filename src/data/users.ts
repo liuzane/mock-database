@@ -10,7 +10,7 @@ export interface User {
   lastLoginTime: string;
 }
 
-export const users: User[] = [
+const users: User[] = [
   { id: 1, name: '张三', email: 'zhangsan@example.com', phone: '16602100001', status: 'active', role: '超级管理员', roleId: 1, createTime: '2024-01-01 10:00:00', lastLoginTime: '2024-01-15 14:30:00' },
   { id: 2, name: '李四', email: 'lisi@example.com', phone: '16602100002', status: 'active', role: '管理员', roleId: 2, createTime: '2024-01-02 10:00:00', lastLoginTime: '2024-01-14 16:20:00' },
   { id: 3, name: '王五', email: 'wangwu@example.com', phone: '16602100003', status: 'disabled', role: '产品经理', roleId: 3, createTime: '2024-01-03 10:00:00', lastLoginTime: '2024-01-10 09:15:00' },
@@ -28,3 +28,5 @@ export const users: User[] = [
   { id: 15, name: '韩十七', email: 'hanshiqi@example.com', phone: '16602100015', status: 'active', role: '普通用户', roleId: 5, createTime: '2024-01-15 10:00:00', lastLoginTime: '-' },
   { id: 16, name: '杨十八', email: 'yangshiba@example.com', phone: '16602100016', status: 'active', role: '数据分析师', roleId: 7, createTime: '2024-01-15 11:00:00', lastLoginTime: '2024-01-15 14:00:00' },
 ];
+
+export default users;
